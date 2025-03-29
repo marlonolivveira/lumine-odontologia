@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    padding: 0;
+}
+
+.container-top{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(245, 213, 165);
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+.list-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin-right: 250px;
+    cursor: pointer;
+}
+
+li{
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+li:hover{
+    color: rgb(114, 67, 110);
+}
+
+.sobre-lumine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.texto-sobre{
+    /* max-width: 25px; */
+    flex-wrap: wrap;
+    /* margin-right: 250px; */
+    /* width: 00px; */
+}
+
+.img-conhecendo{
+    /* width: 250px; */
+    height: 400px;
+}
