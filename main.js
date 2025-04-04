@@ -23,4 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
         });
     });
+
+    // Debug rápido (adicione ao JS):
+console.log("Posição do X:", 
+    document.querySelector('.hamburger-icon').getBoundingClientRect()
+);
 });

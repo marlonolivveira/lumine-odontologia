@@ -21,15 +21,9 @@ body{
 
 
 /* ===== BOTÃO HAMBÚRGUER ===== */
-.hamburger-btn[aria-expanded="true"] + .nav-menu {
-    right: 0 !important;
-  }
-
 /* Estilo do Botão Hambúrguer */
 .hamburger-btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: relative;
     width: 30px;
     height: 24px;
     background: transparent;
@@ -39,49 +33,46 @@ body{
     z-index: 1000;
 }
 
-.hamburger-icon {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: white;
-    position: relative;
-    transition: all 0.3s ease;
-    transform-origin: center; /* Pivô no centro */
-}
-
+.hamburger-icon,
 .hamburger-icon::before,
 .hamburger-icon::after {
     content: '';
     position: absolute;
     left: 0;
-    width: 100%;
+    width: 30px;
     height: 3px;
     background: white;
     transition: all 0.3s ease;
-    transform-origin: center; /* Pivô no centro */
+    transform-origin: 50% 50%; /* Pivô no centro */
 }
 
+.hamburger-icon {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Correção da posição das barras superior e inferior */
 .hamburger-icon::before {
-    top: -10px;
+    top: -8px; /* Ajuste fino para a barra superior */
 }
 
 .hamburger-icon::after {
-    bottom: -10px;
+    bottom: -8px; /* Ajuste fino para a barra inferior */
 }
 
-/* Estado ativo (X) - Animação PERFEITA */
+/* Quando o menu está aberto (X) */
 .hamburger-btn[aria-expanded="true"] .hamburger-icon {
     background: transparent;
 }
 
 .hamburger-btn[aria-expanded="true"] .hamburger-icon::before {
     top: 0;
-    transform: rotate(45deg) translate(0, 0);
+    transform: rotate(45deg) translateY(0);
 }
 
 .hamburger-btn[aria-expanded="true"] .hamburger-icon::after {
     bottom: 0;
-    transform: rotate(-45deg) translate(0, 0);
+    transform: rotate(-45deg) translateY(0);
 }
 
 
@@ -292,48 +283,6 @@ footer {
     /* Esconde menu desktop */
     .container-top .list-items:not(.nav-menu ul) {
         display: none;
-    }
-    
-    /* Estilo do hambúrguer */
-    .hamburger-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 30px;
-        height: 24px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1000;
-    }
-    
-    .hamburger-icon {
-        width: 30px;
-        height: 3px;
-        background: white;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-    
-    .hamburger-icon::before {
-        content: '';
-        position: absolute;
-        width: 30px;
-        height: 3px;
-        background: white;
-        top: -8px;
-        transition: all 0.3s ease;
-    }
-    
-    /* Animação para X */
-    .hamburger-btn[aria-expanded="true"] .hamburger-icon {
-        transform: rotate(45deg);
-        background: transparent;
-    }
-    
-    .hamburger-btn[aria-expanded="true"] .hamburger-icon::before {
-        transform: rotate(-90deg) translateX(-8px);
     }
     
     /* Menu mobile */
