@@ -1,41 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumine Odontologia Integrada</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='style.css'>
-    <script src='main.js'></script>
+    <!-- <script src='main.js'></script> -->
 </head>
 <body>
-    <div class="container">
+    <header>
         <div class="container-top">
-            <h1>Lumine Odontologia Integrada</h1>
-            <ul class="list-items">
-                <li>
-                    Sobre nós
-                </li>
-                <li>
-                    A Lumine
-                </li>
-                <li>
-                    Tratamentos
-                </li>
-                <li>
-                    Nossos casos
-                </li>
-            </ul>
-        </div>
+            <img class="head-logo" alt="Logo Lumine Odontologia" width="230" src="assets/Secundária-sem-fundo.png">
 
-        <div class="sobre-lumine">
-            <div>
-                <h1 class="texto-sobre">Conhecendo a Lumine Odontologia Integrada</h1>
-            </div>
-            <div>
-                <img class="img-conhecendo" alt="" src="assets/recepcao.jpg">
-            </div>
+            <button class="hamburger-btn" aria-label="Menu" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul class="list-items">
+                    <li><a href="#sobre">Sobre nós</a></li>
+                    <li><a href="#lumine">A Lumine</a></li>
+                    <li><a href="#tratamentos">Tratamentos</a></li>
+                    <li><a href="#casos">Nossos casos</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
+    <main class="container">
+        <section id="sobre" class="sobre-lumine">
+            <div class="texto-sobre">
+                <h1>Conhecendo a Lumine Odontologia Integrada</h1>
+                <p>
+                    A Lumine Odontologia Integrada é uma clinica independente a qual sua especialidade é transformar vidas e auto-estima atraves dos sorrisos.    
+                </p>
+                <p>
+                    A Lumine Odontologia Integrada é uma clinica independente a qual sua especialidade é transformar vidas e auto-estima atraves dos sorrisos.    
+                </p>
+                <p>
+                    A Lumine Odontologia Integrada é uma clinica independente a qual sua especialidade é transformar vidas e auto-estima atraves dos sorrisos.    
+                </p>
+            </div>
+            <div>
+                <img class="img-biaMaria" alt="Foto das socias" src="assets/BiaMaria.png">
+            </div>
+        </section>
+
+        <section class="logo-lumine">
+            <img class="logo-mid"  src="assets/Secundária-sem-fundo.png" alt="Logo Lumine Odontologia">
+        </section>
+
+        <section class="lumine">
+            <div>
+                <img class="" src="assets/frente.jpg" width="300" alt="Fachada da clínica Lumine Odontologia">
+            </div>
+            <div class="div-p">
+                <p>
+                    A Lumine Odontologia Integrada é uma clinica independente a qual sua especialidade é transformar vidas e auto-estima atraves dos sorrisos.    
+                </p>
+                <p class="text-left">
+                    Com agendamento flexível para melhor atender sua rotina. Ja transformamos mais de 1.000 sorrisos           
+                </p>
+                <p class="text-left">
+                    A Lumine Odontologia Integrada é uma clinica independente a qual sua especialidade é transformar vidas e auto-estima atraves dos sorrisos.    
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Lumine Odontologia Integrada</p>
+    </footer>
+    <script src="main.js" defer></script>
 </body>
 </html>

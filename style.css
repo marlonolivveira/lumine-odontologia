@@ -1,49 +1,286 @@
 * {
     margin: 0;
     padding: 0;
-    padding: 0;
+    box-sizing: border-box;
+
 }
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Estilo do Botão Hambúrguer */
+.hamburger-btn {
+    display: none; /* Escondido em desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    position: relative;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger-icon::before {
+    top: -8px;
+}
+
+.hamburger-icon::after {
+    top: 8px;
+}
+
+/* Menu aberto (animação do botão) */
+.hamburger-btn[aria-expanded="true"] .hamburger-icon {
+    background: transparent;
+}
+
+.hamburger-btn[aria-expanded="true"] .hamburger-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger-btn[aria-expanded="true"] .hamburger-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
 
 .container-top{
     display: flex;
-    flex-direction: row;
-    background-color: rgb(245, 213, 165);
-    justify-content: space-evenly;
-    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  #da682c;
+    padding: 1rem;
+}
+
+.head-logo{
+    margin-left: clamp(1rem, 5vw, 100px);
 }
 
 .list-items{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    margin-right: 250px;
+    gap: 1.5rem;
+    margin-right: clamp(1rem, 5vw, 150px);
     cursor: pointer;
+    color: white;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit; 
+    outline: none;
 }
 
 li{
-    margin-left: 20px;
-    font-size: 20px;
+    /* margin-left: 35px; */
+    font-size: clamp(1rem, 2vw, 21px);
 }
 
 li:hover{
-    color: rgb(114, 67, 110);
+    color: #b3355a;
 }
 
-.sobre-lumine{
+.sobre-lumine {
     display: flex;
+    justify-content: space-evenly;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    min-height: auto;
+    background: #da682c; 
+    border-radius: 0 0 150px 150px;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    /* background-color: #da682c; */
+    /* position: relative; */
+}
+
+.sobre-lumine::before {
+    /* content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    
+    /* opacity: ;  */
+    z-index: -1; 
+
+}
+
+.sobre-lumine > * {
+    position: relative;
 }
 
 .texto-sobre{
-    /* max-width: 25px; */
-    flex-wrap: wrap;
-    /* margin-right: 250px; */
-    /* width: 00px; */
+    /* max-width: 400px; */
+    max-width: min(90%, 400px);
+    /* text-align: left; */
+    margin-left: clamp(1rem, 10vw, 150px);
 }
 
-.img-conhecendo{
+.texto-sobre h1{
+    margin-top: 10px; 
+    /* font-size: 30px; */
+    /* font-weight: bold; */
+    color: black;
+}
+
+.texto-sobre p{
+   margin-top: 10px; 
+   font-size: 15px;
+   /* font-weight: normal; */
+   color: black;
+}
+
+.img-biaMaria{
     /* width: 250px; */
-    height: 400px;
+    /* margin-left: 500px; */
+    /* height: 500px; */
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+
+}
+
+.lumine{
+    display: flex;
+    /* flex-direction: row; */
+    flex-direction: column; 
+    align-items: center;
+    pad: 2rem;
+}
+
+.logo-lumine{
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-mid{
+    width: min(100%, 400px);
+    filter: 
+    brightness(0) 
+    saturate(100%) 
+    invert(22%) 
+    sepia(99%) 
+    saturate(1812%) 
+    hue-rotate(310deg) 
+    brightness(89%) 
+    contrast(91%);
+    /* background-color: #b3355a; */
+}
+
+.div-p{
+    margin-left: 60px;
+    max-width: 90% !important;
+    margin: 0 0 0 2rem !important;
+    text-align: left;
+
+}
+
+.text-left{
+    margin-top: 25px;
+}
+
+.card{
+    /* max-width: 400px;
+    text-align: left;
+    margin-left: 150px;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px; 
+    background: #f0f0f0; 
+    padding: 20px;  */
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #f5f5f5; /* Cor de fundo suave */
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .lumine {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .div-p {
+        max-width: 20% !important;
+        margin-left: 60px !important;
+    }
+    .texto-sobre h1 { 
+        font-size: 2rem; 
+    }
+    .container-top {
+        /* flex-direction: column; */
+        padding: 1rem;
+    }
+    .head-logo, .list-items {
+        /* margin: 0 !important; */
+    }
+    .sobre-lumine {
+        flex-direction: column;
+    }
+    .texto-sobre {
+        margin-left: 1rem !important;
+    }
+}
+/* Estilo do Menu para Mobile */
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+    
+    .nav-menu {
+        display: flex !important; /* Força exibição em mobile */
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        padding-top: 0 !important;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .list-items {
+        flex-direction: row !important;
+        padding: 0 !important;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .sobre-lumine { 
+        flex-direction: row; 
+        min-height: 450px;
+    }
 }
