@@ -1,8 +1,17 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Impede scroll horizontal */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body{
@@ -10,55 +19,69 @@ body{
     overflow-x: hidden;
 }
 
+
+/* ===== BOTÃO HAMBÚRGUER ===== */
+.hamburger-btn[aria-expanded="true"] + .nav-menu {
+    right: 0 !important;
+  }
+
 /* Estilo do Botão Hambúrguer */
 .hamburger-btn {
-    display: none; /* Escondido em desktop */
-    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 0;
     z-index: 1000;
 }
 
 .hamburger-icon {
     display: block;
-    width: 25px;
+    width: 100%;
     height: 3px;
     background: white;
     position: relative;
+    transition: all 0.3s ease;
+    transform-origin: center; /* Pivô no centro */
 }
 
 .hamburger-icon::before,
 .hamburger-icon::after {
     content: '';
     position: absolute;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 3px;
     background: white;
     transition: all 0.3s ease;
+    transform-origin: center; /* Pivô no centro */
 }
 
 .hamburger-icon::before {
-    top: -8px;
+    top: -10px;
 }
 
 .hamburger-icon::after {
-    top: 8px;
+    bottom: -10px;
 }
 
-/* Menu aberto (animação do botão) */
+/* Estado ativo (X) - Animação PERFEITA */
 .hamburger-btn[aria-expanded="true"] .hamburger-icon {
     background: transparent;
 }
 
 .hamburger-btn[aria-expanded="true"] .hamburger-icon::before {
-    transform: rotate(45deg);
     top: 0;
+    transform: rotate(45deg) translate(0, 0);
 }
 
 .hamburger-btn[aria-expanded="true"] .hamburger-icon::after {
-    transform: rotate(-45deg);
-    top: 0;
+    bottom: 0;
+    transform: rotate(-45deg) translate(0, 0);
 }
 
 
@@ -96,6 +119,11 @@ li{
 
 li:hover{
     color: #b3355a;
+}
+
+.sobre-lumine, .lumine {
+    width: 100vw;
+    padding: 1rem;
 }
 
 .sobre-lumine {
@@ -157,15 +185,15 @@ li:hover{
 }
 
 .img-biaMaria{
-    /* width: 250px; */
     /* margin-left: 500px; */
     /* height: 500px; */
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     max-height: 500px;
     object-fit: contain;
 
 }
+
 
 .lumine{
     display: flex;
@@ -225,46 +253,100 @@ footer {
     margin-top: 2rem;
 }
 
+/* ========== TABLET (768px+) ========== */
 @media (min-width: 768px) {
+    /* Layout principal */
     .lumine {
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
     }
+    
     .div-p {
-        max-width: 20% !important;
-        margin-left: 60px !important;
+        max-width: 20%;
+        margin-left: 60px;
     }
+    
     .texto-sobre h1 { 
         font-size: 2rem; 
     }
+    
+    /* Header */
     .container-top {
-        /* flex-direction: column; */
         padding: 1rem;
     }
-    .head-logo, .list-items {
-        /* margin: 0 !important; */
-    }
-    .sobre-lumine {
-        flex-direction: column;
-    }
-    .texto-sobre {
-        margin-left: 1rem !important;
-    }
-}
-/* Estilo do Menu para Mobile */
-@media (max-width: 768px) {
+    
+    /* Esconde hambúrguer em desktop */
     .hamburger-btn {
-        display: block;
+        display: none;
     }
     
+    /* Mostra menu desktop */
     .nav-menu {
-        display: flex !important; /* Força exibição em mobile */
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        background: transparent !important;
-        padding-top: 0 !important;
+        display: block !important;
+    }
+}
+
+/* ========== MOBILE (até 767px) ========== */
+@media (max-width: 767px) {
+    /* Esconde menu desktop */
+    .container-top .list-items:not(.nav-menu ul) {
+        display: none;
+    }
+    
+    /* Estilo do hambúrguer */
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1000;
+    }
+    
+    .hamburger-icon {
+        width: 30px;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .hamburger-icon::before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background: white;
+        top: -8px;
+        transition: all 0.3s ease;
+    }
+    
+    /* Animação para X */
+    .hamburger-btn[aria-expanded="true"] .hamburger-icon {
+        transform: rotate(45deg);
+        background: transparent;
+    }
+    
+    .hamburger-btn[aria-expanded="true"] .hamburger-icon::before {
+        transform: rotate(-90deg) translateX(-8px);
+    }
+    
+    /* Menu mobile */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: #da682c;
+        transition: right 0.3s ease;
+        padding-top: 80px;
+        z-index: 999;
     }
     
     .nav-menu.active {
@@ -272,8 +354,21 @@ footer {
     }
     
     .list-items {
-        flex-direction: row !important;
-        padding: 0 !important;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    /* Ajustes de layout */
+    .texto-sobre {
+        margin-left: 1rem !important;
+        max-width: 90% !important;
+    }
+    
+    .img-biaMaria {
+        max-width: 100%;
+        height: auto;
+        margin-top: 1rem;
     }
 }
 
@@ -282,5 +377,8 @@ footer {
     .sobre-lumine { 
         flex-direction: row; 
         min-height: 450px;
+    }
+    .div-p{
+        /* max-width: 25%; */
     }
 }
