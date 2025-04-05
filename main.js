@@ -1,31 +1,53 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger-btn');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
 
-    // Abre/fecha menu
-    hamburger.addEventListener('click', function() {
-        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !isExpanded);
+    // Função para fechar o menu
+    const closeMenu = () => {
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        body.style.overflow = 'auto';
+    };
+
+    // Abrir/fechar menu
+    hamburgerBtn.addEventListener('click', () => {
+        const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+        hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
         navMenu.classList.toggle('active');
-        document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+        body.style.overflow = isExpanded ? 'auto' : 'hidden';
     });
 
-    // Fecha menu ao clicar nos links
+    // Scroll suave + fechar menu
     document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Remove se estiver usando âncoras
-            hamburger.setAttribute('aria-expanded', 'false');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Impede o comportamento padrão
+            closeMenu();
             
-            // Adicione esta linha se quiser rolar suave:
-            const targetId = this.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Scroll suave com offset para o header
+                window.scrollTo({
+                    top: targetElement.offsetTop -0.01,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
-    // Debug rápido (adicione ao JS):
-console.log("Posição do X:", 
-    document.querySelector('.hamburger-icon').getBoundingClientRect()
-);
+    // Fechar menu ao scrollar (com delay)
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (navMenu.classList.contains('active')) {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(closeMenu, 100); // Fecha após 100ms de scroll
+        }
+    });
+
+    // Fechar menu ao redimensionar
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) closeMenu();
+    });
 });
