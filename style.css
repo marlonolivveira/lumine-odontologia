@@ -9,6 +9,10 @@ html, body {
     box-sizing: border-box;
 }
 
+:root {
+    scroll-behavior: smooth;
+}
+
 html, body{
     max-width: 100%;
     overflow-x: hidden;
@@ -18,7 +22,6 @@ body{
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 }
-
 
 /* ===== BOTÃO HAMBÚRGUER ===== */
 /* Estilo do Botão Hambúrguer */
@@ -339,8 +342,20 @@ footer {
 }
 
 /* ========== TABLET (768px+) ========== */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     /* Layout principal */
+
+    .sobre-lumine {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem 1rem;
+        border-radius: 0 0 80px 80px;
+    }
+    .case-row {
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+
     .lumine {
         flex-direction: row;
         justify-content: center;
@@ -350,6 +365,16 @@ footer {
     .div-p {
         max-width: 20%;
         margin-left: 60px;
+    }
+
+    .div-p, .texto-sobre {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    img {
+        max-width: 80%;
+        margin: 0 auto;
     }
     
     .texto-sobre h1 { 
@@ -390,18 +415,20 @@ footer {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 50%;
+        width: 45%;
         height: 70vh;
         background: white;
         transition: right 0.3s ease;
-        padding-top: 80px;
         z-index: 999;
+        overflow-y: auto;
+        padding-top: 80px;
         border-radius: 120px 0 0 120px;
 
     }
     
     .nav-menu.active {
         right: 0;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     }
 
     .list-items {
@@ -513,6 +540,10 @@ footer {
         text-align: center;
     }
 
+    .content-card h3{
+        margin-top: 1rem;
+    }
+
     .card{
         max-width: 100%; 
         padding: 0px;
@@ -535,10 +566,15 @@ footer {
         min-height: 450px;
     }
 
+    .container-case {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
     .case-row {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         gap: 2rem;
         max-width: 1200px;
         margin: 2rem auto;

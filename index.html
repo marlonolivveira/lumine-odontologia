@@ -3,16 +3,18 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Lumine Odontologia Integrada</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/frente.jpg" as="image">
     <link rel='stylesheet' href='style.css'>
     <!-- <script src='main.js'></script> -->
 </head>
 <body>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.includes%2CIntersectionObserver"></script>
     <header>
         <div class="container-top">
             <img class="head-logo" alt="Logo Lumine Odontologia" width="230" src="assets/Secundária-sem-fundo.png">
@@ -26,9 +28,8 @@
                     <li><a href="#lumine">A Lumine</a></li>
                     <li><a href="#casos">Nossos casos</a></li>
                     <li><a href="#tratamentos">Tratamentos disponíveis</a></li>
-                    <li><a href="#localizacao">Localização</a></li>
-                    <li><a href="#contato">Contato</a></li>
-
+                    <li><a href="#localizacao">Localização & Contato</a></li>
+                    <!-- <li><a href="#contato">Contato</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -93,7 +94,6 @@
             <h1>Algumas de nossas transformações</h1>
             <div class="container-case">
                 <div class="case-row">
-
                     <div>
                         <h3>Lentes de contato</h3>
                         <p>
@@ -217,6 +217,20 @@
                             Em muitos casos, quadros de inflamação da polpa (“nervo”) do dente ou de infecção aguda do canal geralmente causam dor ao paciente.
                         </p>                     
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="locazacao&contato">
+            <div>
+                <h1>Entre em contato</h1>
+                <div>
+                    <p>
+                        <span>Endereço:</span> Edifício Alameda Central - R. Cel. Cabral, 576 - Sala 04 - Centro, Tubarão - SC, 88701-050
+                    </p>
+                    <p>
+                        <span>Telefone:</span> (48) 98823-5400
+                    </p>
                 </div>
             </div>
         </section>

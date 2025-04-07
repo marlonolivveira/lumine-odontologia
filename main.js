@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Detecção de touch
+    document.body.classList.add(
+        'ontouchstart' in window || navigator.maxTouchPoints > 0 
+        ? 'touch' 
+        : 'no-touch'
+    );
 
     // Fechar menu ao scrollar (com delay)
     let scrollTimeout;
