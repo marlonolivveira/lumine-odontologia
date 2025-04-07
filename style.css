@@ -1,22 +1,24 @@
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body{
+/* html, body{
     max-width: 100%;
     overflow-x: hidden;
+} */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body{
-    font-family: 'Montserrat', sans-serif;
+    width: 100%;
     overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 
@@ -130,7 +132,7 @@ li:hover{
     background: #da682c; 
     border-radius: 0 0 150px 150px;
     width: 100%;
-    height: 450px;
+    height: 40vh;
     overflow: hidden;
 }
 
@@ -143,8 +145,8 @@ li:hover{
 }
 
 .texto-sobre{
-    max-width: min(90%, 400px);
-    margin-left: clamp(1rem, 10vw, 150px);
+    max-width: min(30%);
+    /* margin-left: 1rem; */
     color: white;
 }
 
@@ -165,6 +167,7 @@ li:hover{
     justify-content: center;
     min-height: 400px;
     padding: 2rem;
+    padding-top: 0;
     position: relative;
     width: 100%;
 }
@@ -222,7 +225,7 @@ li:hover{
 
 .section-case-sucess{
     background-color: #b3355a;
-    padding-top: 5rem;
+    padding-top: 3rem;
     padding-bottom: 1.3rem;
     border-radius: 150px 150px 0 0;
 }
@@ -232,7 +235,7 @@ li:hover{
     text-align: center;
     font-weight: bold;
     font-size: 30px;
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
 }
 
 .container-case{
@@ -289,16 +292,17 @@ li:hover{
     text-align: center;
 }
 
+.section-tratamentos-disponiveis p{
+    padding: 1em;
+    font-size: 1.5rem;
+    font-size: 20px;
+}
+
 .section-tratamentos-disponiveis h3{
     text-align: center;
     color: white;
     /* padding-top: 1rem; */
     padding-bottom: 1rem;
-}
-
-.section-tratamentos-disponiveis p{
-    padding: 1em;
-    font-size: 1.5rem;
 }
 
 .content-card p{
@@ -341,6 +345,13 @@ footer {
 /* ========== TABLET (768px+) ========== */
 @media (min-width: 768px) {
     /* Layout principal */
+    .sobre-lumine {
+        flex-direction: column;
+        /* height: auto; */
+        padding: 3rem 2rem;
+        border-radius: 0 0 100px 100px;
+    }
+
     .lumine {
         flex-direction: row;
         justify-content: center;
@@ -351,12 +362,17 @@ footer {
         max-width: 20%;
         margin-left: 60px;
     }
+
+    .texto-sobre {
+        /* margin: 0 auto 2rem !important; */
+        /* max-width: 90% !important; */
+    }
     
     .texto-sobre h1 { 
         font-size: 2rem;
         margin-bottom: 1rem; 
     }
-    
+
     /* Header */
     .container-top {
         padding: 1rem;
@@ -434,6 +450,7 @@ footer {
     .lumine{
         align-items: center;
         justify-content: center;
+        padding-top: 0;
     }
 
     .div-p{
